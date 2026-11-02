@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "ALEKS Module Navigator (V2)",
+  "version": "0.2.0",
+  "description": "Opens ALEKS modules in sequence while you complete each one.",
+  "action": {
+    "default_title": "ALEKS Module Navigator",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["activeTab", "storage"],
+  "content_scripts": [
+    {
+      "matches": ["https://aleks.com/*", "https://*.aleks.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "aleks-module-navigator-v2@local",
+      "strict_min_version": "128.0"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ALEKS Module Navigator</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <p class="eyebrow">V2 · MANUAL COMPLETION</p>
+          <h1>ALEKS Module Navigator</h1>
+        </div>
+        <button id="scan" type="button">Scan page</button>
+      </header>
+
+      <p id="status" role="status">Open an ALEKS course module list, then scan the page.</p>
+      <ol id="modules" aria-label="Detected modules"></ol>
+      <div class="actions">
+        <button id="start" type="button" disabled>Start with first selected</button>
+        <button id="next" type="button" disabled>Module complete — open next</button>
+        <button id="stop" type="button" disabled>Stop sequence</button>
+      </div>
+      <footer>You complete and submit each module yourself. V2 only navigates.</footer>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>
