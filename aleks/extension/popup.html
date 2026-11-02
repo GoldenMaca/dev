@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ALEKS Math Assistant</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="dashboard">
+      <header class="header">
+        <div>
+          <p class="eyebrow">LOCAL LEARNING TOOL</p>
+          <h1>ALEKS Math Assistant</h1>
+        </div>
+        <button id="refresh" class="refresh-button" type="button" aria-label="Refresh status">
+          Refresh
+        </button>
+      </header>
+
+      <section class="card connection-card" aria-labelledby="connection-heading">
+        <div class="section-heading">
+          <h2 id="connection-heading">Connection</h2>
+          <span id="connection-indicator" class="indicator neutral" aria-hidden="true"></span>
+        </div>
+        <p id="connection-status" class="connection-status" role="status">Checking page…</p>
+        <p id="page-detail" class="detail">Checking the active tab</p>
+      </section>
+
+      <section class="card" aria-labelledby="systems-heading">
+        <div class="section-heading">
+          <h2 id="systems-heading">System status</h2>
+        </div>
+        <ul class="status-list">
+          <li><span>Local backend</span><span id="backend-status" class="badge neutral">Checking</span></li>
+          <li><span>HTML scanner</span><span class="badge neutral">Not implemented</span></li>
+          <li><span>Math engine</span><span class="badge neutral">Not implemented</span></li>
+          <li><span>Graphing engine</span><span class="badge neutral">Not implemented</span></li>
+          <li><span>Page detection</span><span id="detection-status" class="badge neutral">Checking</span></li>
+        </ul>
+        <p id="backend-detail" class="detail">Checking the local health endpoint</p>
+      </section>
+
+      <section class="card activity-card" aria-labelledby="activity-heading">
+        <div class="section-heading">
+          <h2 id="activity-heading">Activity</h2>
+        </div>
+        <ol id="activity-list" class="activity-list" aria-live="polite">
+          <li class="empty-activity">No activity yet.</li>
+        </ol>
+      </section>
+
+      <footer>Nothing is automatically submitted to ALEKS.</footer>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

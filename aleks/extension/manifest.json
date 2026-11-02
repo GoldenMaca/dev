@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "ALEKS Math Assistant",
+  "version": "0.1.0",
+  "description": "A local educational assistant for understanding ALEKS math problems.",
+  "action": {
+    "default_title": "ALEKS Math Assistant",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "permissions": ["activeTab", "storage"],
+  "host_permissions": ["http://127.0.0.1:8765/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://aleks.com/*", "https://*.aleks.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "aleks-math-assistant@local",
+      "strict_min_version": "128.0"
+    }
+  }
+}
