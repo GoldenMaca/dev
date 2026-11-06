@@ -17,11 +17,39 @@
         <div class="sidebar-label">YOUR BANK</div>
         <nav class="main-nav" aria-label="Main navigation">
           <button class="nav-item active" data-tab="dashboard"><span class="nav-icon">◫</span>Overview</button>
-          <button class="nav-item" data-tab="branches"><span class="nav-icon">⌖</span>Branches <span class="nav-count" id="branch-count">3</span></button>
-          <button class="nav-item" data-tab="lending"><span class="nav-icon">↗</span>Lending <span class="nav-count alert-count" id="application-count">0</span></button>
-          <button class="nav-item" data-tab="treasury"><span class="nav-icon">◈</span>Treasury</button>
-          <button class="nav-item" data-tab="security"><span class="nav-icon">⬡</span>Security & vault</button>
+          <details class="nav-group nav-group-customers" open>
+            <summary><span>Customers</span><span class="nav-group-count" id="customer-count"></span></summary>
+            <button class="nav-item" data-tab="clients"><span class="nav-icon">✉</span>Client desk <span class="nav-count alert-count" id="request-count">3</span></button>
+            <button class="nav-item" data-tab="calls"><span class="nav-icon">▣</span>Sales calls <span class="nav-count alert-count" id="call-count"></span></button>
+            <button class="nav-item" data-tab="mail"><span class="nav-icon">▧</span>Mail & email <span class="nav-count alert-count" id="mail-count"></span></button>
+          </details>
+          <details class="nav-group nav-group-finance">
+            <summary><span>Money & lending</span><span class="nav-group-count" id="finance-count"></span></summary>
+            <button class="nav-item" data-tab="lending"><span class="nav-icon">↗</span>Loan applications <span class="nav-count alert-count" id="application-count">0</span></button>
+            <button class="nav-item" data-tab="loans"><span class="nav-icon">▤</span>Active loans</button>
+            <button class="nav-item" data-tab="investments"><span class="nav-icon">◈</span>Investments</button>
+            <button class="nav-item" data-tab="cashflow"><span class="nav-icon">▧</span>Income & expenses</button>
+            <button class="nav-item" data-tab="treasury"><span class="nav-icon">◎</span>Rates & reserves</button>
+          </details>
+          <details class="nav-group nav-group-operations">
+            <summary><span>Bank operations</span></summary>
+            <button class="nav-item" data-tab="branches"><span class="nav-icon">⌖</span>Branches <span class="nav-count" id="branch-count">3</span></button>
+            <button class="nav-item" data-tab="staff"><span class="nav-icon">♙</span>People & payroll</button>
+            <button class="nav-item" data-tab="security"><span class="nav-icon">⬡</span>Security & vault</button>
+          </details>
         </nav>
+        <section class="liquidity-card" aria-label="Lending liquidity">
+          <div class="liquidity-title"><span>◇</span> LENDING LIQUIDITY</div>
+          <strong id="lendable-cash">$0</strong>
+          <small>Available to lend now</small>
+          <div class="liquidity-divider"></div>
+          <div class="liquidity-row"><span>Cash on hand</span><b id="cash-on-hand">$0</b></div>
+          <div class="liquidity-row"><span>Safety reserve</span><b id="reserve-amount">$0</b></div>
+          <div class="liquidity-row"><span>Queued withdrawals</span><b id="withdrawal-reserve">$0</b></div>
+          <div class="liquidity-row"><span>Loan offers reserved</span><b id="loan-commitments">$0</b></div>
+          <div class="liquidity-meter"><i id="liquidity-meter-fill"></i></div>
+          <small id="liquidity-status">Checking liquidity</small>
+        </section>
         <div class="sidebar-spacer"></div>
         <div class="side-health">
           <span class="health-dot"></span>
@@ -38,14 +66,16 @@
         <header class="topbar">
           <div class="breadcrumb"><span>COMMONWEALTH</span><b>/</b><strong id="page-title">Overview</strong></div>
           <div class="topbar-right">
-            <div class="day-display"><span class="live-dot"></span><span id="day-label">DAY 01</span></div>
-            <button class="button button-primary end-day" data-action="end-day"><span>⏵</span> End day</button>
+            <div class="day-display"><span class="live-dot"></span><span id="day-label">DAY 01</span><strong id="day-clock">04:00</strong></div>
+            <button class="button button-quiet tutorial-button" data-action="tutorial-replay" aria-label="Start the guided tour">? Tour</button>
+            <button class="button button-primary end-day" data-action="toggle-clock" id="clock-toggle"><span>Ⅱ</span> Pause</button>
           </div>
         </header>
         <div id="screen" class="screen"></div>
       </main>
     </div>
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <div id="tutorial-layer"></div>
     <script src="app.js"></script>
   </body>
 </html>
