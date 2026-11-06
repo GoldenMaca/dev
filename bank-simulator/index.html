@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101713">
+    <title>Commonwealth — Bank Simulator</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#" aria-label="Commonwealth home" data-tab="dashboard">
+          <span class="brand-mark">C</span>
+          <span><strong>COMMONWEALTH</strong><small>INDEPENDENT BANK</small></span>
+        </a>
+        <div class="sidebar-label">YOUR BANK</div>
+        <nav class="main-nav" aria-label="Main navigation">
+          <button class="nav-item active" data-tab="dashboard"><span class="nav-icon">◫</span>Overview</button>
+          <button class="nav-item" data-tab="branches"><span class="nav-icon">⌖</span>Branches <span class="nav-count" id="branch-count">3</span></button>
+          <button class="nav-item" data-tab="lending"><span class="nav-icon">↗</span>Lending <span class="nav-count alert-count" id="application-count">0</span></button>
+          <button class="nav-item" data-tab="treasury"><span class="nav-icon">◈</span>Treasury</button>
+          <button class="nav-item" data-tab="security"><span class="nav-icon">⬡</span>Security & vault</button>
+        </nav>
+        <div class="sidebar-spacer"></div>
+        <div class="side-health">
+          <span class="health-dot"></span>
+          <span><b>All systems normal</b><small>Bank operating smoothly</small></span>
+        </div>
+        <div class="profile">
+          <div class="avatar">JD</div>
+          <span><b>Jordan Davis</b><small>Bank owner</small></span>
+          <span class="profile-more">···</span>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <div class="breadcrumb"><span>COMMONWEALTH</span><b>/</b><strong id="page-title">Overview</strong></div>
+          <div class="topbar-right">
+            <div class="day-display"><span class="live-dot"></span><span id="day-label">DAY 01</span></div>
+            <button class="button button-primary end-day" data-action="end-day"><span>⏵</span> End day</button>
+          </div>
+        </header>
+        <div id="screen" class="screen"></div>
+      </main>
+    </div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
